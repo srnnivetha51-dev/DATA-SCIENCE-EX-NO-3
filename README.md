@@ -104,6 +104,66 @@ CC
 ```
 
 <img width="634" height="433" alt="Screenshot 2026-08-18 105636" src="https://github.com/user-attachments/assets/60ed9e96-358a-4b48-a621-6cb07b6ad6a3" />
+```
+import pandas as pd
+from scipy import stats
+import numpy as np
+df=pd.read_csv("Data_to_Transform.csv")
+df
+
+np.log(df["Highly Positive Skew"])
+
+np.reciprocal(df["Moderate Positive Skew"])
+
+np.sqrt(df["Highly Positive Skew"])
+
+np.square(df["Highly Positive Skew"])
+
+
+```
+
+<img width="642" height="717" alt="Screenshot 2026-08-18 105841" src="https://github.com/user-attachments/assets/316de1fa-9895-4413-a696-e1309f3df144" />
+```
+df["Highly Positive Skew_boxcox"], parameters=stats.boxcox(df["Highly Positive
+df
+
+
+df["Highly Negative Skew_yeojohnson"],parameters=stats.yeojohnson(df["Highly N
+df.skew()
+
+
+```
+
+<img width="722" height="678" alt="Screenshot 2026-08-18 105949" src="https://github.com/user-attachments/assets/361742cd-6ffb-42ea-a706-05b1ac3c2e01" />
+```
+
+import seaborn as sns
+import statsmodels.api as sm # STATS MODEL- STATISTICAL MODEL TO VISUALIZE DIS
+import matplotlib.pyplot as plt
+sm.qqplot(df["Moderate Negative Skew"],line='45') # QQ - QUANTILE QUANTILE PLO
+plt.show()
+
+sm.qqplot(np.reciprocal(df["Moderate Negative Skew"]),line='45') # RECIPROCAL
+plt.show()
+:
+In [ ]:
+from sklearn.preprocessing import QuantileTransformer
+qt=QuantileTransformer(output_distribution='normal',n_quantiles=891)
+df["Moderate Negative Skew"]=qt.fit_transform(df[["Moderate Negative Skew"]])
+sm.qqplot(df["Moderate Negative Skew"],line='45')
+plt.show()
+
+```
+
+<img width="843" height="551" alt="Screenshot 2026-08-18 110110" src="https://github.com/user-attachments/assets/6a3b3460-eb54-403c-b06b-e09c84e5e823" />
+
+<img width="819" height="536" alt="Screenshot 2026-08-18 110117" src="https://github.com/user-attachments/assets/c85da26f-0a71-4274-b467-b5a298b5ecd9" />
+
+<img width="842" height="577" alt="Screenshot 2026-08-18 110124" src="https://github.com/user-attachments/assets/2ab99c80-b5b0-49fe-a522-f1585811cbbc" />
+
+
+
+
 
 
 # RESULT:
