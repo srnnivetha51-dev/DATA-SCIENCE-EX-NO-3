@@ -43,7 +43,69 @@ We use this categorical data encoding technique when the features are nominal(do
 • Yeojohnson method
 
 # CODING AND OUTPUT:
-       # INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS HERE
+```
+import pandas as pd
+df=pd.read_csv("Encoding Data.csv")
+print(df)
+
+from sklearn.preprocessing import LabelEncoder,OrdinalEncoder
+pm=['Hot','Warm','Cold']
+e1=OrdinalEncoder(categories=[pm])
+e1.fit_transform(df[["ord_2"]])
+df['bo2']=e1.fit_transform(df[["ord_2"]])
+print(df)
+```
+<img width="474" height="750" alt="Screenshot 2026-08-18 105229" src="https://github.com/user-attachments/assets/85f30f96-4e8e-497f-b7c7-b69fe4966dd8" />
+
+
+```
+
+
+le=LabelEncoder()
+dfc=df.copy()
+dfc['ord_2']=le.fit_transform(dfc['ord_2'])
+print(dfc)
+
+from sklearn.preprocessing import OneHotEncoder
+ohe=OneHotEncoder(sparse_output=False)
+df2=df.copy()
+enc=pd.DataFrame(ohe.fit_transform(df2[["nom_0"]])) # Orders in Alphabetical O
+df2=pd.concat([df2,enc],axis=1)
+print(df2)
+
+
+```
+<img width="543" height="535" alt="Screenshot 2026-08-18 105254" src="https://github.com/user-attachments/assets/0fea753c-884a-431a-9b17-5a2c56f2bbf6" />
+
+```
+!pip install category_encoders
+from category_encoders import BinaryEncoder
+df=pd.read_csv("data.csv")
+df
+i
+
+be=BinaryEncoder()
+nd=be.fit_transform(df['Ord_2'])
+dfb=pd.concat([df,nd],axis=1)
+dfb
+
+```
+
+<img width="847" height="728" alt="Screenshot 2026-08-18 105523" src="https://github.com/user-attachments/assets/1c760a33-9936-4764-a0c5-b5255d42b61c" />
+
+```
+from category_encoders import TargetEncoder
+te=TargetEncoder()
+CC=df.copy()
+new=te.fit_transform(X=CC["City"],y=CC["Target"])
+CC=pd.concat([CC,new],axis=1)
+CC
+
+```
+
+<img width="634" height="433" alt="Screenshot 2026-08-18 105636" src="https://github.com/user-attachments/assets/60ed9e96-358a-4b48-a621-6cb07b6ad6a3" />
+
+
 # RESULT:
        # INCLUDE YOUR RESULT HERE
 
