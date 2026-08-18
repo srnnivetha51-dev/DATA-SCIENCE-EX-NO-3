@@ -55,6 +55,7 @@ e1.fit_transform(df[["ord_2"]])
 df['bo2']=e1.fit_transform(df[["ord_2"]])
 print(df)
 ```
+
 <img width="474" height="750" alt="Screenshot 2026-08-18 105229" src="https://github.com/user-attachments/assets/85f30f96-4e8e-497f-b7c7-b69fe4966dd8" />
 
 
@@ -75,6 +76,7 @@ print(df2)
 
 
 ```
+
 <img width="543" height="535" alt="Screenshot 2026-08-18 105254" src="https://github.com/user-attachments/assets/0fea753c-884a-431a-9b17-5a2c56f2bbf6" />
 
 ```
@@ -104,6 +106,8 @@ CC
 ```
 
 <img width="634" height="433" alt="Screenshot 2026-08-18 105636" src="https://github.com/user-attachments/assets/60ed9e96-358a-4b48-a621-6cb07b6ad6a3" />
+
+
 ```
 import pandas as pd
 from scipy import stats
@@ -123,6 +127,8 @@ np.square(df["Highly Positive Skew"])
 ```
 
 <img width="642" height="717" alt="Screenshot 2026-08-18 105841" src="https://github.com/user-attachments/assets/316de1fa-9895-4413-a696-e1309f3df144" />
+
+
 ```
 df["Highly Positive Skew_boxcox"], parameters=stats.boxcox(df["Highly Positive
 df
@@ -135,6 +141,8 @@ df.skew()
 ```
 
 <img width="722" height="678" alt="Screenshot 2026-08-18 105949" src="https://github.com/user-attachments/assets/361742cd-6ffb-42ea-a706-05b1ac3c2e01" />
+
+
 ```
 
 import seaborn as sns
@@ -154,6 +162,8 @@ sm.qqplot(df["Moderate Negative Skew"],line='45')
 plt.show()
 
 ```
+
+
 
 <img width="843" height="551" alt="Screenshot 2026-08-18 110110" src="https://github.com/user-attachments/assets/6a3b3460-eb54-403c-b06b-e09c84e5e823" />
 
